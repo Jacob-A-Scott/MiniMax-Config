@@ -19,6 +19,10 @@ end
 nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
 nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
 
+-- Buffer navigation
+nmap('<S-h>', '<Cmd>bprevious<CR>', 'Previous buffer')
+nmap('<S-l>', '<Cmd>bnext<CR>', 'Next buffer')
+
 -- Many general mappings are created by 'mini.basics'. See 'plugin/30_mini.lua'
 
 -- stylua: ignore start
