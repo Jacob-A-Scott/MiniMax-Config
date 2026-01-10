@@ -28,13 +28,20 @@ local now, later = MiniDeps.now, MiniDeps.later
 local now_if_args = _G.Config.now_if_args
 
 -- Step one ===================================================================
--- Enable 'miniwinter' color scheme. It comes with 'mini.nvim' and uses 'mini.hues'.
+-- Enable 'mini.base16' color scheme. It provides a framework for creating
+-- color schemes based on base16 color palettes. 
+-- This config switches from the default 'miniwinter' to 'mini.base16' for 
+-- a more customizable base16 approach.
 --
 -- See also:
 -- - `:h mini.nvim-color-schemes` - list of other color schemes
+-- - `:h MiniBase16` - documentation for mini.base16
 -- - `:h MiniHues-examples` - how to define highlighting with 'mini.hues'
 -- - 'plugin/40_plugins.lua' honorable mentions - other good color schemes
-now(function() vim.cmd('colorscheme miniwinter') end)
+now(function()
+  require('mini.base16').setup()
+  vim.cmd('colorscheme minibase16')
+end)
 
 -- You can try these other 'mini.hues'-based color schemes (uncomment with `gcc`):
 -- now(function() vim.cmd('colorscheme minispring') end)
@@ -222,12 +229,13 @@ later(function() require('mini.align').setup() end)
 
 -- Animate common Neovim actions. Like cursor movement, scroll, window resize,
 -- window open, window close. Animations are done based on Neovim events and
--- don't require custom mappings.
+-- don't require custom mappings. This provides enhanced visual feedback that
+-- makes it easier to follow what's happening in the editor.
 --
 -- It is not enabled by default because its effects are a matter of taste.
 -- Also scroll and resize have some unwanted side effects (see `:h mini.animate`).
--- Uncomment next line (use `gcc`) to enable.
--- later(function() require('mini.animate').setup() end)
+-- Enabling here for enhanced visual feedback in data science workflows.
+later(function() require('mini.animate').setup() end)
 
 -- Go forward/backward with square brackets. Implements consistent sets of mappings
 -- for selected targets (like buffers, diagnostic, quickfix list entries, etc.).

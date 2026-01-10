@@ -56,6 +56,12 @@ now_if_args(function()
     'lua',
     'vimdoc',
     'markdown',
+    -- Data science and web languages
+    'python',
+    'sql',
+    'html',
+    'json',
+    'yaml',
     -- Add here more languages with which you want to use tree-sitter
     -- To see available languages:
     -- - Execute `:=require('nvim-treesitter').get_available()`
@@ -100,10 +106,22 @@ now_if_args(function()
   -- Use `:h vim.lsp.enable()` to automatically enable language server based on
   -- the rules provided by 'nvim-lspconfig'.
   -- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
-  -- Uncomment and tweak the following `vim.lsp.enable()` call to enable servers.
-  -- vim.lsp.enable({
-  --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
-  -- })
+  -- Enable LSP servers for data science and web development languages
+  -- NOTE: These servers must be installed separately on your system:
+  --   - lua_ls: via package manager or https://github.com/LuaLS/lua-language-server
+  --   - pyright: npm install -g pyright
+  --   - sqls: go install github.com/lighttiger2505/sqls@latest
+  --   - html: npm install -g vscode-langservers-extracted
+  --   - jsonls: npm install -g vscode-langservers-extracted
+  --   - yamlls: npm install -g yaml-language-server
+  vim.lsp.enable({
+    'lua_ls',   -- Lua
+    'pyright',  -- Python
+    'sqls',     -- SQL
+    'html',     -- HTML
+    'jsonls',   -- JSON
+    'yamlls',   -- YAML
+  })
 end)
 
 -- Formatting =================================================================
@@ -123,8 +141,19 @@ later(function()
   -- - `:h conform-formatters`
   require('conform').setup({
     -- Map of filetype to formatters
-    -- Make sure that necessary CLI tool is available
-    -- formatters_by_ft = { lua = { 'stylua' } },
+    -- Make sure that necessary CLI tools are installed on your system:
+    --   - stylua: cargo install stylua (or via package manager)
+    --   - black: pip install black
+    --   - sql_formatter: npm install -g sql-formatter
+    --   - prettier: npm install -g prettier
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      python = { 'black' },
+      sql = { 'sql_formatter' },
+      html = { 'prettier' },
+      json = { 'prettier' },
+      yaml = { 'prettier' },
+    },
   })
 end)
 

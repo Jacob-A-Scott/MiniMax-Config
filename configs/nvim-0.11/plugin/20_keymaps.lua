@@ -19,6 +19,13 @@ end
 nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
 nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
 
+-- Buffer navigation
+-- Note: These override default H (top of screen) and L (bottom of screen) movements
+-- in favor of buffer navigation, which is often more useful in modern workflows.
+-- mini.bracketed also provides `]b`/`[b` for buffer navigation, but these are more ergonomic.
+nmap('<S-h>', '<Cmd>bprevious<CR>', 'Previous buffer')
+nmap('<S-l>', '<Cmd>bnext<CR>', 'Next buffer')
+
 -- Many general mappings are created by 'mini.basics'. See 'plugin/30_mini.lua'
 
 -- stylua: ignore start
