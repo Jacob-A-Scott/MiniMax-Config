@@ -29,8 +29,9 @@ local now_if_args = _G.Config.now_if_args
 
 -- Step one ===================================================================
 -- Enable 'mini.base16' color scheme. It provides a framework for creating
--- color schemes based on base16 color palettes. This replaces the previous
--- 'miniwinter' colorscheme for a more customizable base16 approach.
+-- color schemes based on base16 color palettes. 
+-- This config switches from the default 'miniwinter' to 'mini.base16' for 
+-- a more customizable base16 approach.
 --
 -- See also:
 -- - `:h mini.nvim-color-schemes` - list of other color schemes
@@ -228,11 +229,12 @@ later(function() require('mini.align').setup() end)
 
 -- Animate common Neovim actions. Like cursor movement, scroll, window resize,
 -- window open, window close. Animations are done based on Neovim events and
--- don't require custom mappings.
+-- don't require custom mappings. This provides enhanced visual feedback that
+-- makes it easier to follow what's happening in the editor.
 --
 -- It is not enabled by default because its effects are a matter of taste.
 -- Also scroll and resize have some unwanted side effects (see `:h mini.animate`).
--- Enabling for enhanced visual feedback.
+-- Enabling here for enhanced visual feedback in data science workflows.
 later(function() require('mini.animate').setup() end)
 
 -- Go forward/backward with square brackets. Implements consistent sets of mappings
