@@ -108,12 +108,14 @@ now_if_args(function()
   -- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
   -- Enable LSP servers for data science and web development languages
   -- NOTE: These servers must be installed separately on your system:
+  --   - lua_ls: via package manager or https://github.com/LuaLS/lua-language-server
   --   - pyright: npm install -g pyright
   --   - sqls: go install github.com/lighttiger2505/sqls@latest
   --   - html: npm install -g vscode-langservers-extracted
   --   - jsonls: npm install -g vscode-langservers-extracted
   --   - yamlls: npm install -g yaml-language-server
   vim.lsp.enable({
+    'lua_ls',   -- Lua
     'pyright',  -- Python
     'sqls',     -- SQL
     'html',     -- HTML
