@@ -107,6 +107,12 @@ now_if_args(function()
   -- the rules provided by 'nvim-lspconfig'.
   -- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
   -- Enable LSP servers for data science and web development languages
+  -- NOTE: These servers must be installed separately on your system:
+  --   - pyright: npm install -g pyright
+  --   - sqls: go install github.com/lighttiger2505/sqls@latest
+  --   - html: npm install -g vscode-langservers-extracted
+  --   - jsonls: npm install -g vscode-langservers-extracted
+  --   - yamlls: npm install -g yaml-language-server
   vim.lsp.enable({
     'pyright',  -- Python
     'sqls',     -- SQL
@@ -133,7 +139,11 @@ later(function()
   -- - `:h conform-formatters`
   require('conform').setup({
     -- Map of filetype to formatters
-    -- Make sure that necessary CLI tool is available
+    -- Make sure that necessary CLI tools are installed on your system:
+    --   - stylua: cargo install stylua (or via package manager)
+    --   - black: pip install black
+    --   - sql_formatter: npm install -g sql-formatter
+    --   - prettier: npm install -g prettier
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'black' },
