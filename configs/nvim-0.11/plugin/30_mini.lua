@@ -29,7 +29,8 @@ local now_if_args = _G.Config.now_if_args
 
 -- Step one ===================================================================
 -- Enable 'mini.base16' color scheme. It provides a framework for creating
--- color schemes based on base16 color palettes.
+-- color schemes based on base16 color palettes. This replaces the previous
+-- 'miniwinter' colorscheme for a more customizable base16 approach.
 --
 -- See also:
 -- - `:h mini.nvim-color-schemes` - list of other color schemes
