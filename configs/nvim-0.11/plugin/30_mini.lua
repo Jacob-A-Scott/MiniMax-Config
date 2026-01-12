@@ -47,7 +47,6 @@ now(function()
       base0C = '#86c1b9', base0D = '#7cafc2', base0E = '#ba8baf', base0F = '#a16946'
     }
   })
-  vim.cmd('colorscheme minibase16')
 end)
 
 -- You can try these other 'mini.hues'-based color schemes (uncomment with `gcc`):
